@@ -1,25 +1,15 @@
-<div class="container">
-  <h1>Users!</h1>
-   <h2>Hi, 
-   <% if session[:user_id] != nil %>
-  <%= User.find(session[:user_id]).first_name %>!
-  <% end %></h2><hr/>
- 
- <h3> Sign Up: </h3>
-  <form id="sign_up_form" action="/sign_up" method="post">
-    <input type="text" name="first_name" placeholder="First Name">
-    <input type="text" name="last_name" placeholder="Last Name">
-    <input type="email" name="email" placeholder="Email">
-    <input type="date" name="birthdate" placeholder="Birthdate">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" value="Sign up!">
-  </form><hr/>
-  <h3> Log In: </h3>
-  <form id="login_form" action="login" method="post">
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" value="Sign in!">
-  </form><hr/>
-  <a href= "/logout">Log out!</a>
+<h3>Sign Up:</h3>
+<form id="sign_up_form" action="/sign_up" method="post">
+  <input type="text" name="user[first_name]" placeholder="First Name">
+  <input type="text" name="user[last_name]" placeholder="Last Name">
+  <input type="email" name="user[email]" placeholder="Email">
+  <input type="password" name="user[password]" placeholder="Password">
+  <br><br><input type="submit" value="Sign up!">
+</form><br><hr>
 
-</div>
+<h3>Log In:</h3>
+<form id="login_form" action="/login" method="post">
+  <input type="email" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
+  <br><br><input type="submit" value="Sign in!">
+</form><br><hr>

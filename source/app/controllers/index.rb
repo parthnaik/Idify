@@ -1,5 +1,5 @@
 get '/' do
-  # render home page
+  # render login and signup page
   erb :index
 end
 
@@ -7,15 +7,15 @@ end
 
 get '/users/new' do
   # render sign-up page
-  @user = User.new
+  @user = User.create(params[:user])
   erb :sign_up
 end
 
 post '/sign_up' do
-  @user = User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], birthdate: params[:birthdate], password: params[:password], password_confirmation: params[:password])
+  @user = User.create(params[:user])
   session[:user_id] = @user.id
   
-  redirect "/"
+  redirect '/'
 end
 
 post '/login' do
