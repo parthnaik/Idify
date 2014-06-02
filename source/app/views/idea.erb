@@ -1,0 +1,7 @@
+<h3><%= @idea.title %> by <%= @idea.user.email %></h3>
+<p><%= @idea.description %></p>
+<p>
+	<% @images.each do |image| %>
+		<img src='<%= image.url %>'>
+	<% end %>
+</p>

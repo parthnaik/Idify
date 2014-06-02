@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :ideas
 	has_many :votes, foreign_key: :voter_id
+  has_many :voted_ideas, through: :votes, source: :idea
 	has_many :images, through: :ideas
 	
   validates :email, :format => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -17,8 +18,8 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(email, password)
-    student = Student.find_by_email(email)
-    return student if student && (student.password == password)
+    user = User.find_by_email(email)
+    return user if user && (user.password == password)
     nil # either invalid email or wrong password
   end
 end

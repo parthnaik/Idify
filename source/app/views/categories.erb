@@ -1,0 +1,4 @@
+<h3>Choose a category</h3>
+<% @categories.each do |category| %>
+	<a href='/categories/<%= category.id %>'><%= category.name %></a><br>
+<% end %>
