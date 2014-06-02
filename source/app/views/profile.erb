@@ -1,0 +1,9 @@
+<h3>My Ideas:</h3>
+<% @my_ideas.each do |my_idea| %>
+	<a href='/categories/<%= my_idea.category.id %>/ideas/<%= my_idea.id %>'><%= my_idea.title %></a><br>
+<% end %>
+
+<h3>My Votes:</h3>
+<% @my_voted_ideas.each do |voted_idea| %>
+	<a href='/categories/<%= voted_idea.category.id %>/ideas/<%= voted_idea.id %>'><%= voted_idea.title %></a><br>
+<% end %>

@@ -1,0 +1,12 @@
+<h3>Ideas</h3>
+<% @ideas_with_vote_count.each do |idea_hash| %>
+	<a href='/categories/<%= @category_id %>/ideas/<%= idea_hash[:idea].id %>'><%= idea_hash[:idea].title %></a> <span id='<%= idea_hash[:idea].id %>'> <%= idea_hash[:vote_count] %></span>
+	<% if !current_user.voted_ideas.include?(idea_hash[:idea]) %>
+		<form method='post' action='/upvote'>
+			<input class='upvote' type='button' value='Upvote'>
+			<input name='idea_id' type='hidden' value='<%= idea_hash[:idea].id %>'>
+		</form>
+	<% end %><br>
+<% end %>
+
+<a href='/categories/<%= @category_id %>/ideas/new'>Create New</a>

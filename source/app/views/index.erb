@@ -7,6 +7,10 @@
   <br><br><input type="submit" value="Sign up!">
 </form><br><hr>
 
+<%= @errors %>
+<%= session[:login_error] %>
+<% session[:login_error] = nil %>
+
 <h3>Log In:</h3>
 <form id="login_form" action="/login" method="post">
   <input type="email" name="email" placeholder="Email">
